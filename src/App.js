@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import AddTaskInput from './component/AddTaskInput';
+import store from './redux/store';
+import { Provider } from 'react-redux'
+import { Container } from '@mui/material';
+import TaskList from './component/TaskList';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Container maxWidth="md" sx={{ backgroundColor: '#F9F9F9', padding: 4, borderRadius: 8 }}>
+        <h1 style={{ textAlign: 'center', marginBottom: 20 }}>Todo App</h1>
+        <AddTaskInput />
+        <TaskList />
+      </Container>
+    </Provider>
   );
 }
 
